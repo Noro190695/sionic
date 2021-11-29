@@ -1,0 +1,41 @@
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+  }
+  
+  @font-face {
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap');
+  }
+  
+  @font-face {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+  }
+  
+  @font-face {
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+  }
+
+  /// colors
+
+$color-1: #2f2f2f;
+$color-2: #242424;
+$color-3: #c4c4c4;
+$color-4: #101010;
+$white: #ffffff;
+$blue-1: #0D6EDD;
+$black-50: rgba(0,0,0,.5);
+
+
+
+// font size
+
+$date-font-size: 12px;

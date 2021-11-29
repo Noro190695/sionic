@@ -1,0 +1,30 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    outline: none;
+    font-family: 'Raleway', sans-serif;
+}
+
+html,body{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.app{
+    width: 100%;
+    min-height: 100vh;
+}
+.container{
+    width: 1014px;
+    margin: 0 auto;
+}
+.content{
+    width: 100%;
+    display: block;
+    min-height: calc(100vh - 297px);
+}
