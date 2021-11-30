@@ -1,4 +1,4 @@
-
+@import './var';
 
 *{
     margin: 0;
@@ -27,4 +27,36 @@ html,body{
     width: 100%;
     display: block;
     min-height: calc(100vh - 297px);
+}
+.note__found{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        font-size: 64px;
+        color: $color-4;
+    }
+    h2{
+        font-size: 36px;
+        color: $color-2;
+    }
+}
+
+.loading{
+    width: 100%;
+    height: 50vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+@media (max-width: $ipade-pro){
+    .container{
+        width: 100%;
+        padding: 0 20px;
+    }
 }
