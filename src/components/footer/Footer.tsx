@@ -20,13 +20,13 @@ const Footer: React.FC = () => {
                             <h3>Присоединяйтесь к нам</h3>
                             <ul>
                                 <li>
-                                    <a href='https://facebook.com' target='_blank'><FacebookIcon /></a>
+                                    <a href='https://facebook.com' rel="noreferrer" target='_blank'><FacebookIcon /></a>
                                 </li>
                                 <li>
-                                    <a href='https://vk.com' target='_blank'><VkIcon /></a>
+                                    <a href='https://vk.com' rel="noreferrer" target='_blank'><VkIcon /></a>
                                 </li>
                                 <li>
-                                    <a href='https://instagram.com' target='_blank'><InstagramIcon /></a>
+                                    <a href='https://instagram.com' rel="noreferrer" target='_blank'><InstagramIcon /></a>
                                 </li>
                             </ul>
                         </div>
@@ -34,10 +34,10 @@ const Footer: React.FC = () => {
                             <h3>Устанавливайте приложение</h3>
                             <ul>
                                 <li>
-                                    <a href='https://facebook.com' target='_blank'><GoogleIcon /></a>
+                                    <a href='https://facebook.com' rel="noreferrer" target='_blank'><GoogleIcon /></a>
                                 </li>
                                 <li>
-                                    <a href='https://vk.com' target='_blank'><AppleIcon /></a>
+                                    <a href='https://vk.com' rel="noreferrer" target='_blank'><AppleIcon /></a>
                                 </li>
                             
                             </ul>
