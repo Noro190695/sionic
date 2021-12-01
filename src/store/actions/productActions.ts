@@ -22,7 +22,7 @@ export const changeCount = () => {
         })
     }
 }
-
+let windowHeight = 0;
 export const getProducts = (to: number, count: number) => {
     
     return async (dispatch: Dispatch) => {
@@ -38,11 +38,17 @@ export const getProducts = (to: number, count: number) => {
                 return product;
             })
             Promise.all(products).then(res => {
+
                 dispatch({
                     type: types.GET_PRODUCTS,
                     payload: res
                 })
                 disableLoading(dispatch)
+                window.scrollTo({
+                    top: windowHeight,
+                    behavior: "smooth"
+                });
+                windowHeight += window.innerHeight
             })
         }catch(e) {
             console.log(e);            

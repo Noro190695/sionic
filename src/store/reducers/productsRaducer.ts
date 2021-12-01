@@ -1,4 +1,3 @@
-import { count } from 'console';
 import { types } from '../types/products';
 import { IAction } from './../../interfaces/reduxActions';
 interface IProducts {

@@ -1,7 +1,6 @@
 
 import { Dispatch } from 'redux';
-import { get } from '../../api/fetching'
-import { ICategoryData } from '../reducers/categoryReducer';
+import { get } from '../../api/fetching';
 import { types } from '../types/category';
 
 export const getCategories = () => {

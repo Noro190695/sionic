@@ -1,0 +1,4 @@
+export enum types {
+    ADD_TO_CART = 'ADD_TO_CART',
+    CHANGE_CART_PRODUCT_COUNT = 'CHANGE_CART_PRODUCT_COUNT'
+}

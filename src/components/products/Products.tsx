@@ -8,7 +8,7 @@ import { changeCount, getProducts } from '../../store/actions/productActions';
 import { ICategoryData } from '../../store/reducers/categoryReducer';
 import Product from './Product';
 import Loading from '../loading/Loading';
-const Products = () => {
+const Products: FC = () => {
     const categories = useAppSelector(state => state.category.data);
     const products = useAppSelector(state => state.products);
     const dispatch = useDispatch();
@@ -24,7 +24,6 @@ const Products = () => {
     }
     const sortProductByCategory = (id: number) => {
         console.log(id);
-        
     }
     
     return (

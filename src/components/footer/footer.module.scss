@@ -10,6 +10,9 @@
     align-content: center;
     justify-content: space-between;
 	background-color: $color-1;
+	position: absolute;
+	left: 0;
+	bottom: 0;
     .footer__container{
         height: 100%;
         display: flex;

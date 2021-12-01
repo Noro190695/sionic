@@ -1,7 +1,6 @@
 import React from 'react';
 import Footer from './components/footer/Footer';
 import Header from './components/header/Header';
-import Button from "./components/buttons/Button";
 import {Route, Routes} from "react-router-dom";
 import Cart from "./components/cart/Cart";
 import Checkout from "./components/checkout/Checkout";
