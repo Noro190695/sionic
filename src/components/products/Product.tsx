@@ -13,31 +13,7 @@ const Product: React.FC<IProps> = ({data}) => {
     const cart = useAppSelector(state => state.cart);
     const [count,setCount] = useState(1)
     const addToCartEvent = (product: IProductsData) => {
-
-        if (!!cart.data.length){
-            let isset= cart.data.every((item: any, i: number) => {
-                item.count = count;
-                if(item.product.id !== product.id){
-                    setCount(1)
-                    return product
-                }else{
-                    item.count++
-                    setCount(item.count)
-                }
-            })
-
-            if (isset){
-                dispatch(addToCart({
-                    product: product,
-                    count: 1
-                }));
-            }
-        }else{
-            dispatch(addToCart({
-                product: product,
-                count: 1
-            }));
-        }
+        dispatch(addToCart(product));
     }
     console.log(cart)
 
