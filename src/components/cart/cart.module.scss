@@ -1,3 +1,100 @@
-.cart{
+@import '../../style/var';
 
+.cart{
+    &__header{
+        display: flex;
+        align-items: center;
+
+        .cart__title{
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            color: $color-4;
+            margin-right: 30px;
+        }
+        .cart__clear{
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            color: $color-6;
+            cursor: pointer;
+        }
+    }
+    .cart__content{
+        width: 100%;
+        border: 1px solid $color-7;
+        border-radius: 20px;
+        margin: 30px 0;
+        border-top: 0;
+        padding-bottom: 30px;
+        &_header{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 60px;
+            border: 1px solid $color-7;
+            border-radius: 20px;
+            border-left: 0;
+            border-right: 0;
+            
+        }
+        .cart__item{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 35px 60px ;
+            position: relative;
+            &::after{
+                content: '';
+                display: block;
+                width: calc(100% - 120px);
+                height: 1px;
+                background-color: $color-7;
+                position: absolute;
+                bottom: 0;
+            }
+            img{
+                width: 60px;
+                object-fit: cover;
+                margin-right: 20px;
+            }
+            &_title{
+                width: 290px;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                color: $color-4;
+            }
+            &_quantity{
+                width: 135px;
+                height: 44px;
+                padding: 0 18px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                border: 1px solid $color-7;
+                border-radius: 44px;
+
+                span{
+                    color: $color-7;
+                    font-size: 18px;
+                    cursor: pointer;
+                }
+                input{
+                    max-width: 50%;
+                    appearance: none;
+                    -webkit-appearance: none;
+                    background: none;
+                    text-align: center;
+                    border: none;
+                    color: $color-7;
+                }
+                input[type=number]::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                  }
+            }
+        }
+    }
 }
