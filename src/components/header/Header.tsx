@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useMemo} from 'react';
 import headerStyle from './header.module.scss';
 import CartIcon from '../svg/Cart';
 import SearchIcon from '../svg/Search';
 import LocationIcon from '../svg/Loaction';
 import { Link } from 'react-router-dom';
+import {useAppSelector} from "../hooks/reduxHooks";
 
+interface IProps {
+    count: number
+}
 
-const Header: React.FC = () => {
+const Header: React.FC<IProps> = ({count}) => {
     return (
         <header className={headerStyle.header}>
            <Link to='/' className={headerStyle.logo}>
@@ -22,7 +26,7 @@ const Header: React.FC = () => {
            </form>
            <Link to='/cart' className={headerStyle.cart}>
                 <CartIcon />
-                <span>10+</span>
+                <span>{count <= 10? count: count + '+'}</span>
            </Link>
         </header>   
     )

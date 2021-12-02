@@ -25,6 +25,7 @@ const Products: FC = () => {
     const sortProductByCategory = (id: number) => {
         console.log(id);
     }
+    console.log()
     
     return (
         <div className={productStyle.products}>

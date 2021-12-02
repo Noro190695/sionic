@@ -1,39 +1,48 @@
 import React, { useEffect, useState } from 'react';
-import { IProductsData } from '../../store/reducers/productsRaducer';
 import Button from '../buttons/Button';
-import { useAppSelector } from '../hooks/reduxHooks';
 import DeleteIcon from '../svg/Delete';
 import cartStyle from './cart.module.scss';
+import {useDispatch} from "react-redux";
+import {changeCartProductsCount, clearCartProduct, deleteCartProduct} from "../../store/actions/cartAction";
+import {ICartProduct} from "../../store/reducers/cartReducer";
 
-const Cart: React.FC = () => {
-    const cart = useAppSelector(state => state.cart.data)
+interface IProps {
+    data: ICartProduct[]
+}
+
+const Cart: React.FC<IProps> = ({data} : IProps) => {
+    const dispatch = useDispatch();
     const [price, setPrice] = useState(0);
     const clearCart = () => {
-        
+        dispatch(clearCartProduct())
+    }
+    const getSumCartProducts = (data: any) => {
+        let sum = data.reduce((acc: number, item: any) => {
+            acc += item.count
+            return acc
+        }, 0);
+        return sum
     }
     const deleteProduct = (id: number) => {
-        console.log(id);
-        
+        dispatch(deleteCartProduct(id))
+
     }
     const incrimentProduct = (id: number) => {
-        cart.map((item: any) => {
-            item.count++;
-            
-        })
         console.log(id);  
     }
     const decrimentProduct = (id: number) => {
         console.log(id);
     }
     const changeQuantity = (id: number, value: number) => {
-        console.log(id);
-        console.log(value);
+
     }
     useEffect(() => {
-       let p = cart.reduce((price: number, data: any) => price += data.product.variant.price,0);
-       setPrice(p)
-    },[])
-    if (!!cart.length) {
+        let p = data.reduce((price: number, data: any) => price += data.product.variant.price,0);
+        dispatch(changeCartProductsCount(getSumCartProducts(data)))
+        setPrice(p)
+
+    }, [data])
+    if (!!data.length) {
         return (
             <div className={cartStyle.cart}>
                 <div className={cartStyle.cart__header}>
@@ -55,14 +64,14 @@ const Cart: React.FC = () => {
                         />
                     </div>
                     {
-                        cart.map((prod: any, i: number) => {
+                        data.map((prod: any, i: number) => {
                             return (
                                 <div className={cartStyle.cart__item}>
                                     <img src={'https://test2.sionic.ru/'+prod.product.images[0].image_url} alt="" />
                                     <p className={cartStyle.cart__item_title}>{prod.product.name}</p>
                                     <div className={cartStyle.cart__item_quantity}>
                                         <span onClick={() => decrimentProduct(prod.product.id)}>-</span>
-                                        <input type="number"  defaultValue={prod.count} onChange={(e: any) => changeQuantity(prod.product.id, +e.target.value)}/>
+                                        <input type="number"  defaultValue={prod.count} onChange={(e: any) => changeQuantity(prod.product.id, + e.target.value)}/>
                                         <span onClick={() => incrimentProduct(prod.product.id)}>+</span>
                                     </div>
                                     <p className={cartStyle.cart__item_price}>{prod.product.variant.price} &#8381;</p>
@@ -78,7 +87,7 @@ const Cart: React.FC = () => {
             </div>
         );
     }
-    
+
     return (
         <div className={cartStyle.cart}>
             <h2>CART EMPTY</h2>

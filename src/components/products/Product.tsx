@@ -1,21 +1,27 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { IProductsData } from '../../store/reducers/productsRaducer';
 import Button from '../buttons/Button';
 import productStyle from './products.module.scss';
 import {useDispatch} from "react-redux";
 import {useAppSelector} from "../hooks/reduxHooks";
-import {addToCart} from "../../store/actions/cartAction";
+import {addToCart, changeCartProductsCount} from "../../store/actions/cartAction";
 interface IProps {
     data: IProductsData[]
 }
 const Product: React.FC<IProps> = ({data}) => {
     const dispatch = useDispatch();
     const cart = useAppSelector(state => state.cart);
-    const [count,setCount] = useState(1)
     const addToCartEvent = (product: IProductsData) => {
         dispatch(addToCart(product));
+        if (!!cart.data.length){
+            let cartItemCount = cart.data.reduce((acc: number, item: any) => {
+                acc += item.count
+                return acc
+            }, 0);
+
+            dispatch(changeCartProductsCount(cartItemCount))
+        }
     }
-    console.log(cart)
 
     return (
         <div className={productStyle.product}>
